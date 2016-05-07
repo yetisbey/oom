@@ -5,15 +5,30 @@ using System.Net;
 
 namespace Task2
 {
-	public class Ball
+	public class Book
 	{
-		private decimal price;
+		private double p_price;
 
-		
-		public Ball(string ballName, decimal ballID, decimal price  )
+		public Book (string bookName, decimal bookID, decimal price  )
 		{
-			Console.WriteLine ("Hello World!");
+
+
+			Console.WriteLine ("somthing else!");
+
 		}
 
+		public string bookName {get;set;}
+		public decimal bookID {get; set;}
+		public decimal price {get; private set; }
+
+
+		public void GetNewPrice (decimal newPrice)
+		{
+			if(newPrice<0) throw new Exception("PRICE HAS TO BE POSITIV."); 
+
+		}
 	}
+
 }
+
+
