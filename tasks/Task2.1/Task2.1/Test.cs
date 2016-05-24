@@ -29,8 +29,12 @@ namespace Task2
 				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
 				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
 			};
-			var json = JsonConvert.SerializeObject (arr);
+			var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+			var json = JsonConvert.SerializeObject (arr, settings);
 			Console.WriteLine (json);
+
+
+
 		}
 	}
 }

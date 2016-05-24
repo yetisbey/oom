@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+
 
 namespace Task2
 {
@@ -38,6 +40,19 @@ namespace Task2
 			Schuhe asdf = new Schuhe (123m, 12, "adf", "asef", ShoeUnit.European);
 			asdf.ToString ();
 
+
+			Schuhe[] arr = new Schuhe[] {
+				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
+				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
+				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
+				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
+				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
+			};
+			var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+			var json = JsonConvert.SerializeObject (arr, settings);
+			Console.WriteLine (json);
+
+			File.
 		}
 
 
