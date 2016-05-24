@@ -2,6 +2,7 @@
 using Task2;
 using NUnit.Framework;
 using Newtonsoft.Json;
+
 namespace Task2
 {
 	public class Test
@@ -22,18 +23,7 @@ namespace Task2
 		[Test]
 		public void Test03()
 		{
-			Schuhe[] arr = new Schuhe[] {
-				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
-			};
-			var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
-			var json = JsonConvert.SerializeObject (arr, settings);
-			Console.WriteLine (json);
-
-
+			
 
 		}
 	}

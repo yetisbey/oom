@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using Newtonsoft.Json;
 
 namespace Task2
 {
@@ -10,7 +10,7 @@ namespace Task2
 
 		public static void Main (string[] args)
 		{
-			while (true) {
+			//while (true) {
 
 
 				Console.WriteLine ("Hello Everybod!");
@@ -35,7 +35,7 @@ namespace Task2
 					Console.WriteLine (ex.Message);
 				} 
 
-			}
+			//}
 
 			Schuhe asdf = new Schuhe (123m, 12, "adf", "asef", ShoeUnit.European);
 			asdf.ToString ();
@@ -45,14 +45,23 @@ namespace Task2
 				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
 				new Schuhe (99M,18d,"gelb","nike",ShoeUnit.European),
 				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
-				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.European),
+				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.American),
+				new Schuhe (99M,18d,"yellow","nike",ShoeUnit.American),
 			};
 			var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
 			var json = JsonConvert.SerializeObject (arr, settings);
 			Console.WriteLine (json);
+			var path = Environment.GetFolderPath (Environment.SpecialFolder.Desktop);
+			var filename = Path.Combine (path, "Schuhe.json");
 
-			File.
+			File.WriteAllText (filename, json);
+
+			var readSchuhe = File.ReadAllText (filename);
+			var g = JsonConvert.DeserializeObject<Schuhe[]>(readSchuhe, settings);
+			foreach (var item in g) {
+				item.ToString ();
+			}
+		
 		}
 
 
