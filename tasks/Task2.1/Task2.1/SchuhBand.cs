@@ -6,10 +6,10 @@ namespace Task2
 	{
 		private double _laenge;
 		private string _farbe;
-		private MUnit Einheit { get; }
+		private double Einheit { get; }
 
 		//Constructor
-		public SchuhBand (double laenge, string farbe, MUnit einheit)
+		public SchuhBand (double laenge, string farbe, double einheit)
 		{
 			Laenge = laenge;
 			Farbe = farbe;
@@ -19,7 +19,7 @@ namespace Task2
 
 		public double GetGroesse(int s)
 		{
-			return ConvertToMUnit(Laenge, Einheit, (MUnit)s);
+			return ConvertToMUnit(Laenge, Einheit, s);
 
 		}
 
@@ -51,12 +51,12 @@ namespace Task2
 			}
 		}
 
-		public double ConvertToMUnit(double value, MUnit von, MUnit zu)
+		public double ConvertToMUnit(double value, double von, double zu)
 		{
 			/*value = value / von;
 			value = value * zu;
 			return value;*/
-			return (value / ((int)von / 100) * ((int)zu / 100));
+			return value / von * zu;
 		}
 	}
 }

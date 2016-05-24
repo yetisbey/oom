@@ -11,10 +11,10 @@ namespace Task2
 		European
 	}
 
-	public enum MUnit
+	public class MUnit
 	{
-		Zoll = 254,
-		Cm = 100
+		public static double Zoll = 2.54d;
+		public static double Cm = 1d;
 	}
 
 	public class Schuhe : ISchuhWare
@@ -71,12 +71,12 @@ namespace Task2
 
 		}
 
-		public double ConvertToMUnit(double value, MUnit von, MUnit zu)
+		public double ConvertToMUnit(double value, double von, double zu)
 		{
 			/*value = value / von;
 			value = value * zu;
 			return value;*/
-			return (value / ((int)von / 100) * ((int)zu / 100));
+			return value / von * zu;
 		}
 
 
