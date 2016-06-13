@@ -22,6 +22,12 @@ namespace Task2
 			return ConvertToMUnit(Laenge, Einheit, s);
 
 		}
+		public void checkColor(string neuFarbe)
+		{
+			neuFarbe = "Rosa";
+			Farbe = neuFarbe;
+
+		}
 
 
 		public double Laenge
@@ -32,9 +38,8 @@ namespace Task2
 			set {
 				if (value < 0)
 					throw new Exception ("Länge muss positiv sein.");
-				value = _laenge;
+				_laenge = value;
 			}
-
 
 		}
 
@@ -50,6 +55,7 @@ namespace Task2
 
 			}
 		}
+	
 
 		public double ConvertToMUnit(double value, double von, double zu)
 		{

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Net;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 
 
 namespace Task2
@@ -49,7 +51,13 @@ namespace Task2
 		//methode 
 		public void changePreis(decimal neuPreis)
 		{
-			Preis = neuPreis;
+			Preis = 2*neuPreis;
+
+		}
+		public void checkColor(string neuFarbe)
+		{
+			neuFarbe = "Grün";
+			Farbe = neuFarbe;
 
 		}
 
@@ -144,10 +152,12 @@ namespace Task2
 		}
 
 
+
 		public override string ToString(){
 			return ("Marke: " + Marke +"\n"+"Schuhgröße: " + Schuhgroesse+"\n"+"Farbe: " + Farbe  +"\n"+"Preis: " + Preis + "€\n" ); 
 	
 		}
+
 
 
 	}
